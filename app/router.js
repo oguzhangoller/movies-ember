@@ -7,6 +7,9 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
+  this.route('container', { path: '/', resetNamespace: true }, function() {
+    this.route('movies/index', { path: '/movies', resetNamespace: true });
+  })      
 });
 
 export default Router;
