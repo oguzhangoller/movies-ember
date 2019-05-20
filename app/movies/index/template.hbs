@@ -1,4 +1,23 @@
-<div>
- movies-index
-{{log "qwe"}}
+<div style="display: flex; flex-flow: wrap; justify-content: space-evenly;">
+  {{#each model as |movie|}}
+  <div class="ui card">
+    <div class="content">
+      <a class="header">{{movie.name}}</a>
+      <div class="meta">
+        <span class="date">Movie</span>
+      </div>
+      <div class="description">
+        {{movie.description}}
+      </div>
+    </div>
+    <div class="extra content">
+      <a>
+        <i>Year:</i>
+        {{movie.year}}
+        <i>Rating:</i>
+        {{movie.rating}}
+      </a>
+    </div>
+  </div>
+  {{/each}}
 </div>
