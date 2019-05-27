@@ -10,14 +10,4 @@ export default Route.extend({
       this.get('store').findAll('category')
     );
   },
-  actions: {
-    createMovie(name, description) {
-      console.log("Create user");
-      let movie = this.get('store').createRecord('movie', {
-        name,
-        description,
-      });
-      movie.save();
-    }
-  }
 });

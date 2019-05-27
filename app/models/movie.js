@@ -6,4 +6,5 @@ export default Model.extend({
   description: attr('string'),
   year: attr('number'),
   rating: attr(),
+  categories: hasMany('category'),
 });

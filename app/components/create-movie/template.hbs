@@ -1,0 +1,56 @@
+<div style="width: 90%; margin: auto;">
+  <form class="ui form" {{action "grabNewEmail" on="submit"}}>
+    <h4 class="ui dividing header">Enter New Movie</h4>
+    <div class="field">
+      <label>Movie Name</label>
+      <div class="two fields">
+        <div class="field">
+          {{input value=name}}
+        </div>
+      </div>
+    </div>
+    <div class="field" style="width: 100%;">
+      <label>Description</label>
+      <div class="fields">
+        <div class="twelve wide field">
+          {{input value=description}}
+        </div>
+      </div>
+    </div>
+    <div class="field" style="width: 50%;">
+      <label>Categories</label>
+      {{#ui-dropdown class="fluid multiple selection" onChange=(action addCategory)}}
+        <i class="dropdown icon"></i>
+        <div class="default text">Select Category</div>
+        <div class="menu">
+          {{#each categories as |category|}}
+            <div data-value={{category.id}} class="item">
+              {{category.name}}
+            </div>
+          {{/each}}
+        </div>
+      {{/ui-dropdown}}
+    </div>
+
+    {{print}}
+    <div class="two fields">
+      <div class="field" style="width: 100%;">
+        <label>Rating</label>
+        <div class="fields">
+          <div class="twelve wide field">
+            {{input value=rating}}
+          </div>
+        </div>
+      </div>
+      <div class="field" style="width: 100%;">
+        <label>Year</label>
+        <div class="fields">
+          <div class="twelve wide field">
+            {{input value=year}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ui button" tabindex="0" {{action (perform createMovieTask)}}>Create Movie</div>
+  </form>
+</div>

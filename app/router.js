@@ -10,6 +10,7 @@ Router.map(function() {
   this.route('container', { path: '/', resetNamespace: true }, function() {
     this.route('movies/index', { path: '/movies', resetNamespace: true });
     this.route('movies/new', { path: '/movies/new', resetNamespace: true });
+    this.route('movies/show', { path: '/movies/:id', resetNamespace: true });
   })      
 });
 
