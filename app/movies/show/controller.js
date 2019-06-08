@@ -3,5 +3,4 @@ import { alias } from '@ember/object/computed';
 
 export default Controller.extend({
   movie: alias('model'),
-
 });

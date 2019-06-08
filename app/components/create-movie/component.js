@@ -18,8 +18,8 @@ export default Component.extend({
   },
 
   @action
-  addCategory(val){
-    this.set('selectedCategories', [])
+  addCategory(val) {
+    this.set('selectedCategories', []);
 
     this.set(
       'selectedCategories',
@@ -28,7 +28,6 @@ export default Component.extend({
       })
     );
   },
-
 
   createMovieTask: task(function*() {
     const name = this.get('name');

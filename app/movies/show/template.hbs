@@ -9,12 +9,17 @@
         {{movie.description}}
       </div>
     </div>
+    <div>
+      <img src={{concat "http://image.tmdb.org/t/p/w185" movie.posterPath}} alt="poster">
+    </div>
     <div class="extra content">
       <a>
         <i>Year:</i>
         {{movie.year}}
         <i>Rating:</i>
         {{movie.rating}}
+        <i>Language:</i>
+        {{movie.language}}
       </a>
     </div>
   </div>

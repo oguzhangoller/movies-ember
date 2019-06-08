@@ -1,21 +1,32 @@
+<div class="clearfix">
+  {{#if showPrevPageButton}}
+    <a href="#" class="left btn" {{action 'prevPage'}}>&lt; Prev</a>
+  {{/if}}
+  {{#if showNextPageButton}}
+    <a href="#" class="right btn" {{action 'nextPage'}}>Next &gt;</a>
+  {{/if}}
+  pages: {{meta.page}} / {{meta.totalPages}}<br>
+</div>
+
 <div style="display: flex; flex-flow: wrap; justify-content: space-evenly;">
   {{#each movies as |movie|}}
-  <div class="ui card">
+  <div class="ui card" {{action 'showMovie' movie.id}}>
     <div class="content">
       <a class="header">{{movie.name}}</a>
       <div class="meta">
-        <span class="date">Movie</span>
+        <span class="date">{{movie.year}}</span>
       </div>
       <div class="description">
-        {{movie.description}}
+        {{trim-description movie.description}}...
       </div>
+    </div>
+    <div>
+      <img src={{concat "http://image.tmdb.org/t/p/w342" movie.posterPath}} alt="poster" style="display: block; margin-left: auto; margin-right: auto; width: 90%;">
     </div>
     <div class="extra content">
       <a>
-        <i>Year:</i>
-        {{movie.year}}
-        <i>Rating:</i>
-        {{movie.rating}}
+        <i>Rating: {{movie.rating}}</i>
+        <i style="float: right;">Language: {{movie.language}}</i>
       </a>
     </div>
   </div>
