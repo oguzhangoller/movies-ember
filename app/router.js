@@ -11,6 +11,10 @@ Router.map(function() {
     this.route('movies/index', { path: '/movies', resetNamespace: true });
     this.route('movies/new', { path: '/movies/new', resetNamespace: true });
     this.route('movies/show', { path: '/movies/:id', resetNamespace: true });
+
+    this.route('actors/index', { path: '/actors', resetNamespace: true });
+    this.route('actors/new', { path: '/actors/new', resetNamespace: true });
+    this.route('actors/show', { path: '/actors/:id', resetNamespace: true });
   });
 });
 

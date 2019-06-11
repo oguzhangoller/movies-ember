@@ -1,0 +1,19 @@
+<div>
+  <div class="ui card">
+    <div class="content">
+      <a class="header">{{actor.name}}</a>
+      <div class="meta">
+        <span class="date">Actor</span>
+      </div>
+    </div>
+    <div>
+      <img src={{concat "http://image.tmdb.org/t/p/w185" actor.posterPath}} alt="poster">
+    </div>
+    <div class="extra content">
+      <a>
+        <i>Popularity:</i>
+        {{actor.popularity}}
+      </a>
+    </div>
+  </div>
+</div>

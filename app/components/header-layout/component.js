@@ -3,10 +3,12 @@ import { PropTypes } from 'ember-prop-types';
 import { action } from 'ember-decorators/object';
 
 export default Component.extend({
-  propTypes: {},
+  propTypes: {
+    onClick: PropTypes.func,
+  },
 
   @action
-  onClicked() {
-    this.get('onClicked')();
+  clicked() {
+    this.get('onClick')();
   },
 });

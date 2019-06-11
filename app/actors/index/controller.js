@@ -3,7 +3,7 @@ import { computed, action } from 'ember-decorators/object';
 import { alias } from '@ember/object/computed';
 
 export default Controller.extend({
-  movies: alias('model'),
+  actors: alias('model'),
   meta: {},
   page: 1,
 
@@ -18,8 +18,8 @@ export default Controller.extend({
   },
 
   @action
-  showMovie(movieId) {
-    this.transitionToRoute('movies/show', movieId);
+  showActor(actorId) {
+    this.transitionToRoute('actors/show', actorId);
   },
 
   @action

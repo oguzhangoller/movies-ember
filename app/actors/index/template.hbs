@@ -9,24 +9,17 @@
 </div>
 
 <div style="display: flex; flex-flow: wrap; justify-content: space-evenly;">
-  {{#each movies as |movie|}}
-  <div class="ui card" {{action 'showMovie' movie.id}}>
+  {{#each actors as |actor|}}
+  <div class="ui card" {{action 'showActor' actor.id}}>
     <div class="content">
-      <a class="header">{{movie.name}}</a>
-      <div class="meta">
-        <span class="date">{{movie.year}}</span>
-      </div>
-      <div class="description">
-        {{trim-description movie.description}}...
-      </div>
+      <a class="header">{{actor.name}}</a>
     </div>
     <div>
-      <img src={{concat "http://image.tmdb.org/t/p/w342" movie.posterPath}} alt="poster" style="display: block; margin-left: auto; margin-right: auto; width: 90%;">
+      <img src={{concat "http://image.tmdb.org/t/p/w342" actor.posterPath}} alt="poster" style="display: block; margin-left: auto; margin-right: auto; width: 90%;">
     </div>
     <div class="extra content">
       <a>
-        <i>Rating: {{movie.rating}}</i>
-        <i style="float: right;">Language: {{movie.language}}</i>
+        <i>Popularity: {{actor.popularity}}</i>
       </a>
     </div>
   </div>
