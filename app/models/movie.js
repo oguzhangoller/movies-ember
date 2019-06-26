@@ -9,4 +9,5 @@ export default Model.extend({
   rating: attr(),
   language: attr('string'),
   categories: hasMany('category'),
+  movieDbId: attr('number'),
 });

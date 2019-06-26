@@ -3,7 +3,12 @@ import { action } from 'ember-decorators/object';
 
 export default Controller.extend({
   @action
-  onClick() {
-    console.log("qwe")
+  goToActors() {
+    this.transitionToRoute('actors/index')
+  },
+
+  @action
+  goToMovies() {
+    this.transitionToRoute('movies/index')
   },
 });

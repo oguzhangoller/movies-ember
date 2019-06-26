@@ -27,7 +27,6 @@ export default DS.JSONAPISerializer.extend({
   //camelize totalPages
   normalizeArrayResponse(store, primaryModelClass, payload, id, requestType) {
     let normalizedDocument = this._super(...arguments);
-
     // Customize document meta
     normalizedDocument.meta = camelizeKeys(normalizedDocument.meta)
 

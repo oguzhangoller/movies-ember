@@ -1,26 +1,36 @@
 <div>
-  <div class="ui card">
-    <div class="content">
-      <a class="header">{{movie.name}}</a>
-      <div class="meta">
-        <span class="date">Movie</span>
+  <div class="ui link cards" style="width: 90%; margin: auto">
+    <div class="card" style="width: 15%;">
+      {{recommended-movies movieList=recommendedMoviesList
+                           showMovie=(action 'showMovie')}}
+    </div>
+    <div class="card" style="width: 60%;">
+      <div class="content">
+        <a class="header">{{movie.name}}</a>
+        <div class="meta">
+          <span class="date">Movie</span>
+        </div>
+        <div class="description">
+          {{movie.description}}
+        </div>
       </div>
-      <div class="description">
-        {{movie.description}}
+      <div>
+        <img src={{concat "http://image.tmdb.org/t/p/w342" movie.posterPath}} style="display: block; margin: auto;" alt="poster">
+      </div>
+      <div class="extra content">
+        <a>
+          <i>Year:</i>
+          {{movie.year}}
+          <i>Rating:</i>
+          {{movie.rating}}
+          <i>Language:</i>
+          {{movie.language}}
+        </a>
       </div>
     </div>
-    <div>
-      <img src={{concat "http://image.tmdb.org/t/p/w185" movie.posterPath}} alt="poster">
-    </div>
-    <div class="extra content">
-      <a>
-        <i>Year:</i>
-        {{movie.year}}
-        <i>Rating:</i>
-        {{movie.rating}}
-        <i>Language:</i>
-        {{movie.language}}
-      </a>
+    <div class="card" style="width: 15%;">
+      {{similar-movies movieList=similarMoviesList
+                       showMovie=(action 'showMovie')}}
     </div>
   </div>
 </div>

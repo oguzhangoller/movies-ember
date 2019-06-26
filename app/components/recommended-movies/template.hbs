@@ -1,0 +1,18 @@
+<div class="ui link cards">
+  {{#each movieList as |movie|}}
+    <div class="card" {{action showMovie movie.id}}>
+      <div class="image">
+        <img src={{concat "http://image.tmdb.org/t/p/w185" movie.posterPath}}>
+      </div>
+      <div class="content">
+        <div class="header">{{movie.name}}</div>
+        <div class="meta">
+          <a><i class="star icon"></i>{{movie.rating}}</a>
+          <span class="right floated">
+          {{movie.year}}
+        </span>
+        </div>
+      </div>
+    </div>
+  {{/each}}
+</div>

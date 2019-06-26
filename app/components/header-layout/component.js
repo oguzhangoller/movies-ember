@@ -4,11 +4,17 @@ import { action } from 'ember-decorators/object';
 
 export default Component.extend({
   propTypes: {
-    onClick: PropTypes.func,
+    goToActors: PropTypes.func.isRequired,
+    goToMovies: PropTypes.func.isRequired,
   },
 
   @action
-  clicked() {
-    this.get('onClick')();
+  goToActors() {
+    this.get('goToActors')();
+  },
+
+  @action
+  goToMovies() {
+    this.get('goToMovies')();
   },
 });
