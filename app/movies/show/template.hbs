@@ -1,36 +1,47 @@
-<div>
-  <div class="ui link cards" style="width: 90%; margin: auto">
-    <div class="card" style="width: 15%;">
-      {{recommended-movies movieList=recommendedMoviesList
-                           showMovie=(action 'showMovie')}}
+<div class="ui link cards" style="width: 90%; margin: auto">
+  <div class="card" style="width: 15%;">
+    {{movie-aside-component movieList=recommendedMoviesList
+                            showMovie=(action 'showMovie')}}
+  </div>
+  <div class="card" style="width: 60%; height: 30%;">
+    <div class="content">
+      <a class="header">{{movie.name}}</a>
+      <div class="meta">
+        <span class="date">Movie</span>
+      </div>
+      <div class="description">
+        {{movie.description}}
+      </div>
     </div>
-    <div class="card" style="width: 60%;">
-      <div class="content">
-        <a class="header">{{movie.name}}</a>
-        <div class="meta">
-          <span class="date">Movie</span>
+    <div>
+      <img src={{concat "http://image.tmdb.org/t/p/w342" movie.posterPath}} style="display: block; margin: auto;" alt="poster">
+    </div>
+    <div style= "margin: auto; margin-top: 15px;">
+      {{#each actors as |actor index|}}
+        {{#unless (eq index 0)}} - {{/unless}}
+        <a {{action 'showActor' actor.id}}>{{actor.name}}</a>
+      {{/each}}
+    </div>
+    <div class="extra content">
+      <a>
+        <i>Year:</i>
+        {{movie.year}}
+        <i>Rating:</i>
+        {{movie.rating}}
+        <i>Language:</i>
+        {{movie.language}}
+
+        <div style="float:right; font-weight:bold; color:black;">
+          {{#each categories as |category index|}}
+            {{#unless (eq index 0)}} - {{/unless}}
+            {{category.name}}
+          {{/each}}
         </div>
-        <div class="description">
-          {{movie.description}}
-        </div>
-      </div>
-      <div>
-        <img src={{concat "http://image.tmdb.org/t/p/w342" movie.posterPath}} style="display: block; margin: auto;" alt="poster">
-      </div>
-      <div class="extra content">
-        <a>
-          <i>Year:</i>
-          {{movie.year}}
-          <i>Rating:</i>
-          {{movie.rating}}
-          <i>Language:</i>
-          {{movie.language}}
-        </a>
-      </div>
+      </a>
     </div>
-    <div class="card" style="width: 15%;">
-      {{similar-movies movieList=similarMoviesList
-                       showMovie=(action 'showMovie')}}
-    </div>
+  </div>
+  <div class="card" style="width: 15%;">
+    {{movie-aside-component movieList=similarMoviesList
+                            showMovie=(action 'showMovie')}}
   </div>
 </div>

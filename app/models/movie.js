@@ -8,6 +8,8 @@ export default Model.extend({
   year: attr('number'),
   rating: attr(),
   language: attr('string'),
-  categories: hasMany('category'),
   movieDbId: attr('number'),
+
+  categories: hasMany('category'),
+  actors: hasMany('actor'),
 });

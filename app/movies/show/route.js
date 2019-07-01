@@ -5,7 +5,7 @@ import camelizeKeys from 'movies-ember/utils/camelize-keys';
 export default Route.extend({
   model(params) {
     const movie_id = params.id;
-    return this.get('store').findRecord('movie', movie_id);
+    return this.store.findRecord('movie', movie_id, {include: 'categories, actors'});
   },
 
   setupController(controller, model) {

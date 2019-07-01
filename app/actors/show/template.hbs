@@ -1,19 +1,38 @@
-<div>
-  <div class="ui card">
+<div class="ui link cards" style="width: 90%; margin: auto">
+  <div class="card" style="width: 15%;">
+    {{movie-aside-component movieList=playedMoviesList
+                            showMovie=(action 'showMovie')}}
+  </div>
+  <div class="card" style="width: 30%; margin: auto;">
+    <div class="image">
+      <img src={{concat "http://image.tmdb.org/t/p/w342" actor.posterPath}} alt="poster">
+    </div>
     <div class="content">
       <a class="header">{{actor.name}}</a>
       <div class="meta">
         <span class="date">Actor</span>
       </div>
-    </div>
-    <div>
-      <img src={{concat "http://image.tmdb.org/t/p/w185" actor.posterPath}} alt="poster">
+      <div class="extra content">
+          <i>Popularity:</i>
+          {{actor.popularity}}
+      </div>
+      <div class="description">
+        {{actor.description}}
+      </div>
     </div>
     <div class="extra content">
       <a>
-        <i>Popularity:</i>
-        {{actor.popularity}}
+        <i class="user icon"></i>
+          {{actor.birthDate}}
+        <div>
+          <i class="flag icon"></i>
+          {{actor.birthPlace}}
+        </div>
       </a>
     </div>
+  </div>
+  <div class="card" style="width: 15%;">
+    {{movie-aside-component movieList=playedMoviesList
+                            showMovie=(action 'showMovie')}}
   </div>
 </div>
