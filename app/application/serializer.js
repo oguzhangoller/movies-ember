@@ -14,9 +14,9 @@ export default DS.JSONAPISerializer.extend({
 
   //match language codes with language names
   normalizeResponse(store, primaryModelClass, payload, id, requestType) {
-    if(payload.data.attributes && payload.data.attributes.language)
+    if (payload.data.attributes && payload.data.attributes.language)
       payload.data.attributes.language = languageMapper(payload.data.attributes.language);
-    if(Array.isArray(payload.data)){
+    if (Array.isArray(payload.data)) {
       payload.data.forEach(function(element, index, theArray) {
         theArray[index].attributes.language = languageMapper(element.attributes.language);
       });
@@ -28,7 +28,7 @@ export default DS.JSONAPISerializer.extend({
   normalizeArrayResponse(store, primaryModelClass, payload, id, requestType) {
     let normalizedDocument = this._super(...arguments);
     // Customize document meta
-    normalizedDocument.meta = camelizeKeys(normalizedDocument.meta)
+    normalizedDocument.meta = camelizeKeys(normalizedDocument.meta);
 
     return normalizedDocument;
   },

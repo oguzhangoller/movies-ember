@@ -8,12 +8,12 @@ export default Controller.extend({
   page: 1,
 
   @computed('meta.page')
-  showPrevPageButton(page){
+  showPrevPageButton(page) {
     return page > 1;
   },
 
   @computed('meta.page', 'meta.totalPages')
-  showNextPageButton(page, totalPages){
+  showNextPageButton(page, totalPages) {
     return page < totalPages;
   },
 
@@ -32,5 +32,5 @@ export default Controller.extend({
   prevPage() {
     let page = this.get('page');
     this.set('page', parseInt(page) - 1);
-  }
+  },
 });

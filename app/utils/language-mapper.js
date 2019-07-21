@@ -44,5 +44,4 @@ function languageMapper(input) {
   return input;
 }
 
-
 export default languageMapper;

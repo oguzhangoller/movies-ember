@@ -8,17 +8,17 @@ export default Controller.extend({
   similarMoviesList: [], //this is set on route
 
   init() {
-    this._super(...arguments);  
+    this._super(...arguments);
   },
 
   @computed('movie.categories')
-  categories(categories){
-    return categories.slice(0,3);
+  categories(categories) {
+    return categories.slice(0, 3);
   },
 
   @computed('movie.actors')
-  actors(actors){
-    return actors.slice(0,3);
+  actors(actors) {
+    return actors.slice(0, 3);
   },
 
   @action

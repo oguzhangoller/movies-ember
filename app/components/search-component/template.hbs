@@ -1,0 +1,28 @@
+<div class="search-wrapper">
+  <form>
+  {{input autocomplete="off" type="text" name="focus" class="search-box" value=query input=(action 'search') placeholder=placeholder}}
+    <button class="close-icon" type="reset" onclick={{action 'clear'}}></button>
+  </form>
+</div>
+{{#if showResults}}
+  <div class="ui vertical menu">
+    {{#each results as |movie|}}
+      <span {{action "clear"}}>
+        {{#link-to 'movies/show' movie.id}}
+          <div data-value="1" class="list item">
+            <img src={{concat "http://image.tmdb.org/t/p/w92" movie.posterPath}} alt="poster" style="display: block; float: left; width: 30%; margin-right:20px;" onerror="this.src='/images/search_not_found.jpg'">
+            {{movie.name}}
+            <div style="color: gray;">{{movie.year}}</div>
+            <div style="position: absolute; right: 10px; bottom: 0px;">
+              {{#each (slice-array movie.categories 2) as |category index|}}
+                {{#unless (eq index 0)}} - {{/unless}}
+                <b style="color: black;">{{category.name}}</b>
+              {{/each}}
+            </div>
+          </div>
+        {{/link-to}}
+      </span>
+      <hr>
+    {{/each}}
+  </div>
+{{/if}}

@@ -5,7 +5,7 @@ import camelizeKeys from 'movies-ember/utils/camelize-keys';
 export default Route.extend({
   model(params) {
     const movie_id = params.id;
-    return this.store.findRecord('movie', movie_id, {include: 'categories, actors'});
+    return this.store.findRecord('movie', movie_id, { include: 'categories, actors' });
   },
 
   setupController(controller, model) {
@@ -15,11 +15,11 @@ export default Route.extend({
     adapter.getRecommendedMovies(model.id).then(response => {
       const formattedResponse = camelizeKeys(response);
       controller.set('recommendedMoviesList', this.store.push(formattedResponse));
-    })
+    });
 
     adapter.getSimilarMovies(model.id).then(response => {
       const formattedResponse = camelizeKeys(response);
       controller.set('similarMoviesList', this.store.push(formattedResponse));
-    })
+    });
   },
 });
