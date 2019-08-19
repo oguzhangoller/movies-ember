@@ -15,7 +15,7 @@ export default Component.extend({
 
   @action
   clear() {
-    this.set('showResults',false);
+    this.set('showResults', false);
     this.set('query', null);
   },
 

@@ -1,6 +1,6 @@
 import Component from '@ember/component';
 import { PropTypes } from 'ember-prop-types';
-import { computed, action } from 'ember-decorators/object';
+import { action } from 'ember-decorators/object';
 import { inject as service } from '@ember/service';
 
 export default Component.extend({
@@ -18,10 +18,11 @@ export default Component.extend({
 
   @action
   search(value) {
-    if(!value)
-      this.set('showResults',false)
-    else
-      this.set('showResults', true)
+    if (!value) { 
+      this.set('showResults', false);
+    } else {
+      this.set('showResults', true);
+    }
     const adapter = this.store.adapterFor('search');
     adapter.getResult(value).then(response => {
       this.get('store').pushPayload(response.movies);

@@ -1,5 +1,4 @@
 import Route from '@ember/routing/route';
-import { inject as service } from '@ember/service';
 import camelizeKeys from 'movies-ember/utils/camelize-keys';
 
 export default Route.extend({
